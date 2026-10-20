@@ -1,0 +1,17 @@
+# Right half (trackball side) is central: it talks to the Mac.
+if SHIELD_COSMOS_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "cosmos-laza"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif # SHIELD_COSMOS_RIGHT
+
+if SHIELD_COSMOS_LEFT || SHIELD_COSMOS_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif # SHIELD_COSMOS_LEFT || SHIELD_COSMOS_RIGHT

@@ -1,0 +1,20 @@
+// Right half columns — same pins as the left, mirrored (C0 = outer pinky column).
+// Pins 6/7/8/9 (silk 100/011/104/106) are kept free for the PMW3610 trackball.
+// PROVISIONAL until wiring is soldered — see keyboard.todo.md.
+
+#include "cosmos.dtsi"
+
+&default_transform {
+    col-offset = <6>;
+};
+
+&kscan {
+    col-gpios
+        = <&pro_micro 21 GPIO_ACTIVE_HIGH> // C0 p Shift /
+        , <&pro_micro 20 GPIO_ACTIVE_HIGH> // C1 o l . ?
+        , <&pro_micro 19 GPIO_ACTIVE_HIGH> // C2 i k , (
+        , <&pro_micro 18 GPIO_ACTIVE_HIGH> // C3 u j m Alt
+        , <&pro_micro 15 GPIO_ACTIVE_HIGH> // C4 y h n Ctrl
+        , <&pro_micro 14 GPIO_ACTIVE_HIGH> // C5 Backspace
+        ;
+};
