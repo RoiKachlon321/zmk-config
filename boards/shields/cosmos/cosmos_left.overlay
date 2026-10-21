@@ -5,11 +5,11 @@
 
 &kscan {
     col-gpios
-        = <&pro_micro 21 GPIO_ACTIVE_HIGH> // C0 q a z
-        , <&pro_micro 20 GPIO_ACTIVE_HIGH> // C1 w s x Esc
-        , <&pro_micro 19 GPIO_ACTIVE_HIGH> // C2 e d c Tab
-        , <&pro_micro 18 GPIO_ACTIVE_HIGH> // C3 r f v Cmd
-        , <&pro_micro 15 GPIO_ACTIVE_HIGH> // C4 t g b Space
-        , <&pro_micro 14 GPIO_ACTIVE_HIGH> // C5 Lower (R3 C0 = Enter)
+        = <&pro_micro 21 GPIO_ACTIVE_HIGH> // C0 q a z Esc
+        , <&pro_micro 20 GPIO_ACTIVE_HIGH> // C1 w s x Tab
+        , <&pro_micro 19 GPIO_ACTIVE_HIGH> // C2 e d c Cmd
+        , <&pro_micro 18 GPIO_ACTIVE_HIGH> // C3 r f v Space
+        , <&pro_micro 15 GPIO_ACTIVE_HIGH> // C4 t g b Lower
+        , <&pro_micro 14 GPIO_ACTIVE_HIGH> // C5 Enter
         ;
 };
