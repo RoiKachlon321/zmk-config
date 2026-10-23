@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="900" font-family="Helvetica">
+<rect width="100%" height="100%" fill="white"/>
+<text x="40" y="40" font-size="22" fill="#000" text-anchor="start">Skip the blue: join the diodes directly (one row, seen from below)</text>
+<text x="40" y="66" font-size="14" fill="#333" text-anchor="start">Each diode lies sideways from pin 2 toward the next key. After the band, its leg kinks down a few mm</text>
+<text x="40" y="86" font-size="14" fill="#333" text-anchor="start">and runs on to the NEXT key's kink. The kink keeps the row under the next diode instead of touching it.</text>
+<text x="40" y="130" font-size="18" fill="#080" text-anchor="start">✅ RIGHT: band leg → next key's band leg</text>
+<rect x="100" y="180" width="140" height="120" rx="12" fill="#efe6fb" stroke="#7a5aa6" stroke-width="2"/>
+<text x="170" y="285" font-size="15" fill="#4b3470" text-anchor="middle">key 1</text>
+<line x1="135" y1="240" x2="135" y2="150" stroke="#f2c200" stroke-width="6" stroke-linecap="round"/>
+<text x="127" y="145" font-size="11" fill="#a07c00" text-anchor="end">yellow column</text>
+<rect x="131" y="230" width="8" height="20" fill="#b87333"/>
+<rect x="201" y="230" width="8" height="20" fill="#b87333"/>
+<text x="215" y="228" font-size="11" fill="#333" text-anchor="start">pin 2</text>
+<line x1="205" y1="240" x2="295" y2="240" stroke="#2a9d8f" stroke-width="3" stroke-linecap="round"/>
+<line x1="295" y1="240" x2="295" y2="272" stroke="#2a9d8f" stroke-width="3" stroke-linecap="round"/>
+<rect x="227" y="229" width="52" height="22" rx="8" fill="#e9a46a" stroke="#8a5a2b" stroke-width="2"/>
+<rect x="267" y="229" width="9" height="22" fill="#111"/>
+<text x="201" y="210" font-size="11" fill="#2a9d8f" text-anchor="middle">diode 1 starts</text>
+<line x1="205" y1="214" x2="205" y2="230" stroke="#2a9d8f" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="295" y1="272" x2="575" y2="272" stroke="#2a9d8f" stroke-width="3" stroke-linecap="round"/>
+<text x="575" y="306" font-size="11" fill="#2a9d8f" text-anchor="middle">diode 1 ends here</text>
+<text x="575" y="320" font-size="10" fill="#666" text-anchor="middle">(soldered to diode 2)</text>
+<line x1="575" y1="280" x2="575" y2="294" stroke="#2a9d8f" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="205" cy="240" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="295" cy="272" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="135" cy="240" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<rect x="380" y="180" width="140" height="120" rx="12" fill="#efe6fb" stroke="#7a5aa6" stroke-width="2"/>
+<text x="450" y="285" font-size="15" fill="#4b3470" text-anchor="middle">key 2</text>
+<line x1="415" y1="240" x2="415" y2="150" stroke="#f2c200" stroke-width="6" stroke-linecap="round"/>
+<text x="407" y="145" font-size="11" fill="#a07c00" text-anchor="end">yellow column</text>
+<rect x="411" y="230" width="8" height="20" fill="#b87333"/>
+<rect x="481" y="230" width="8" height="20" fill="#b87333"/>
+<text x="495" y="228" font-size="11" fill="#333" text-anchor="start">pin 2</text>
+<line x1="485" y1="240" x2="575" y2="240" stroke="#e63946" stroke-width="3" stroke-linecap="round"/>
+<line x1="575" y1="240" x2="575" y2="272" stroke="#e63946" stroke-width="3" stroke-linecap="round"/>
+<rect x="507" y="229" width="52" height="22" rx="8" fill="#e9a46a" stroke="#8a5a2b" stroke-width="2"/>
+<rect x="547" y="229" width="9" height="22" fill="#111"/>
+<text x="481" y="210" font-size="11" fill="#e63946" text-anchor="middle">diode 2 starts</text>
+<line x1="485" y1="214" x2="485" y2="230" stroke="#e63946" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="575" y1="272" x2="855" y2="272" stroke="#e63946" stroke-width="3" stroke-linecap="round"/>
+<text x="855" y="306" font-size="11" fill="#e63946" text-anchor="middle">diode 2 ends here</text>
+<text x="855" y="320" font-size="10" fill="#666" text-anchor="middle">(soldered to diode 3)</text>
+<line x1="855" y1="280" x2="855" y2="294" stroke="#e63946" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="485" cy="240" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="575" cy="272" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="415" cy="240" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<rect x="660" y="180" width="140" height="120" rx="12" fill="#efe6fb" stroke="#7a5aa6" stroke-width="2"/>
+<text x="730" y="285" font-size="15" fill="#4b3470" text-anchor="middle">key 3</text>
+<line x1="695" y1="240" x2="695" y2="150" stroke="#f2c200" stroke-width="6" stroke-linecap="round"/>
+<text x="687" y="145" font-size="11" fill="#a07c00" text-anchor="end">yellow column</text>
+<rect x="691" y="230" width="8" height="20" fill="#b87333"/>
+<rect x="761" y="230" width="8" height="20" fill="#b87333"/>
+<text x="775" y="228" font-size="11" fill="#333" text-anchor="start">pin 2</text>
+<line x1="765" y1="240" x2="855" y2="240" stroke="#8338ec" stroke-width="3" stroke-linecap="round"/>
+<line x1="855" y1="240" x2="855" y2="272" stroke="#8338ec" stroke-width="3" stroke-linecap="round"/>
+<rect x="787" y="229" width="52" height="22" rx="8" fill="#e9a46a" stroke="#8a5a2b" stroke-width="2"/>
+<rect x="827" y="229" width="9" height="22" fill="#111"/>
+<text x="761" y="210" font-size="11" fill="#8338ec" text-anchor="middle">diode 3 starts</text>
+<line x1="765" y1="214" x2="765" y2="230" stroke="#8338ec" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="855" y1="272" x2="915" y2="272" stroke="#8338ec" stroke-width="3" stroke-linecap="round"/>
+<line x1="915" y1="272" x2="995" y2="272" stroke="#1e6fd9" stroke-width="6" stroke-linecap="round"/>
+<text x="1000" y="277" font-size="12" fill="#1e6fd9" text-anchor="start">blue → controller</text>
+<text x="945" y="306" font-size="11" fill="#8338ec" text-anchor="middle">diode 3 ends here</text>
+<text x="945" y="320" font-size="10" fill="#666" text-anchor="middle">(blue starts)</text>
+<line x1="915" y1="280" x2="915" y2="294" stroke="#8338ec" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="915" cy="272" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="765" cy="240" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="855" cy="272" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="695" cy="240" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<text x="40" y="410" font-size="14" fill="#333" text-anchor="start">Each colour = one diode, from its switch pin to where it's soldered onto the next diode's leg.</text>
+<text x="40" y="430" font-size="14" fill="#333" text-anchor="start">The bent band legs ARE the row. No blue between keys; blue only from the last key to the controller.</text>
+<line x1="20" y1="470" x2="1040" y2="470" stroke="#ccc" stroke-width="2"/>
+<text x="40" y="520" font-size="18" fill="#d00" text-anchor="start">❌ WRONG: band leg → next key's switch pin</text>
+<rect x="100" y="570" width="140" height="120" rx="12" fill="#efe6fb" stroke="#7a5aa6" stroke-width="2"/>
+<text x="170" y="675" font-size="15" fill="#4b3470" text-anchor="middle">key 1</text>
+<line x1="135" y1="630" x2="135" y2="540" stroke="#f2c200" stroke-width="6" stroke-linecap="round"/>
+<text x="127" y="535" font-size="11" fill="#a07c00" text-anchor="end">yellow column</text>
+<rect x="131" y="620" width="8" height="20" fill="#b87333"/>
+<rect x="201" y="620" width="8" height="20" fill="#b87333"/>
+<text x="215" y="618" font-size="11" fill="#333" text-anchor="start">pin 2</text>
+<line x1="205" y1="630" x2="295" y2="630" stroke="#999" stroke-width="3" stroke-linecap="round"/>
+<line x1="295" y1="630" x2="295" y2="662" stroke="#999" stroke-width="3" stroke-linecap="round"/>
+<rect x="227" y="619" width="52" height="22" rx="8" fill="#e9a46a" stroke="#8a5a2b" stroke-width="2"/>
+<rect x="267" y="619" width="9" height="22" fill="#111"/>
+<circle cx="205" cy="630" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="295" cy="662" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="135" cy="630" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<rect x="380" y="570" width="140" height="120" rx="12" fill="#efe6fb" stroke="#7a5aa6" stroke-width="2"/>
+<text x="450" y="675" font-size="15" fill="#4b3470" text-anchor="middle">key 2</text>
+<line x1="415" y1="630" x2="415" y2="540" stroke="#f2c200" stroke-width="6" stroke-linecap="round"/>
+<text x="407" y="535" font-size="11" fill="#a07c00" text-anchor="end">yellow column</text>
+<rect x="411" y="620" width="8" height="20" fill="#b87333"/>
+<rect x="481" y="620" width="8" height="20" fill="#b87333"/>
+<text x="495" y="618" font-size="11" fill="#333" text-anchor="start">pin 2</text>
+<line x1="485" y1="630" x2="575" y2="630" stroke="#999" stroke-width="3" stroke-linecap="round"/>
+<line x1="575" y1="630" x2="575" y2="662" stroke="#999" stroke-width="3" stroke-linecap="round"/>
+<rect x="507" y="619" width="52" height="22" rx="8" fill="#e9a46a" stroke="#8a5a2b" stroke-width="2"/>
+<rect x="547" y="619" width="9" height="22" fill="#111"/>
+<text x="505" y="612" font-size="12" fill="#d00" text-anchor="start">this diode is skipped!</text>
+<line x1="575" y1="662" x2="855" y2="662" stroke="#999" stroke-width="3" stroke-linecap="round"/>
+<text x="855" y="696" font-size="11" fill="#999" text-anchor="middle">diode 2 ends here</text>
+<text x="855" y="710" font-size="10" fill="#666" text-anchor="middle">(soldered to diode 3)</text>
+<line x1="855" y1="670" x2="855" y2="684" stroke="#999" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="485" cy="630" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="575" cy="662" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="415" cy="630" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<rect x="660" y="570" width="140" height="120" rx="12" fill="#efe6fb" stroke="#7a5aa6" stroke-width="2"/>
+<text x="730" y="675" font-size="15" fill="#4b3470" text-anchor="middle">key 3</text>
+<line x1="695" y1="630" x2="695" y2="540" stroke="#f2c200" stroke-width="6" stroke-linecap="round"/>
+<text x="687" y="535" font-size="11" fill="#a07c00" text-anchor="end">yellow column</text>
+<rect x="691" y="620" width="8" height="20" fill="#b87333"/>
+<rect x="761" y="620" width="8" height="20" fill="#b87333"/>
+<text x="775" y="618" font-size="11" fill="#333" text-anchor="start">pin 2</text>
+<line x1="765" y1="630" x2="855" y2="630" stroke="#999" stroke-width="3" stroke-linecap="round"/>
+<line x1="855" y1="630" x2="855" y2="662" stroke="#999" stroke-width="3" stroke-linecap="round"/>
+<rect x="787" y="619" width="52" height="22" rx="8" fill="#e9a46a" stroke="#8a5a2b" stroke-width="2"/>
+<rect x="827" y="619" width="9" height="22" fill="#111"/>
+<line x1="855" y1="662" x2="915" y2="662" stroke="#999" stroke-width="3" stroke-linecap="round"/>
+<line x1="915" y1="662" x2="995" y2="662" stroke="#1e6fd9" stroke-width="6" stroke-linecap="round"/>
+<text x="1000" y="667" font-size="12" fill="#1e6fd9" text-anchor="start">blue → controller</text>
+<circle cx="765" cy="630" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="855" cy="662" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="695" cy="630" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<line x1="295" y1="662" x2="465" y2="662" stroke="#d00" stroke-width="3" stroke-linecap="round"/>
+<line x1="465" y1="662" x2="485" y2="636" stroke="#d00" stroke-width="3" stroke-linecap="round"/>
+<circle cx="485" cy="630" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<text x="497" y="660" font-size="34" fill="#d00" font-weight="bold">✕</text>
+<text x="535" y="650" font-size="12" fill="#d00" text-anchor="start">band leg soldered onto key 2's pin 2</text>
+<text x="40" y="820" font-size="14" fill="#333" text-anchor="start">Key 2 still types, but the row now touches key 2's switch directly, so key 2's diode does nothing.</text>
+<text x="40" y="842" font-size="14" fill="#333" text-anchor="start">Pressing several keys at once can then produce wrong letters (ghosting). Band legs only touch band legs or blue.</text>
+</svg>

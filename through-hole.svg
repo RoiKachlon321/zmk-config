@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" font-family="Helvetica">
+<rect width="100%" height="100%" fill="white"/>
+<text x="20" y="40" font-size="22" fill="#000" text-anchor="start">Soldering a wire into a controller hole (side view)</text>
+<text x="20" y="64" font-size="14" fill="#333" text-anchor="start">USB unplugged while soldering. The hole is lined with copper, so solder flows into it and grabs the wire.</text>
+<text x="20" y="90" font-size="18" fill="#000" text-anchor="start">1. Push the wire in</text>
+<text x="20" y="115" font-size="13" fill="#333" text-anchor="start">Strip ~3 mm, tin it.</text>
+<text x="20" y="135" font-size="13" fill="#333" text-anchor="start">Push the tip through the hole;</text>
+<text x="20" y="155" font-size="13" fill="#333" text-anchor="start">bend it a little so it stays.</text>
+<rect x="20" y="300" width="122" height="30" fill="#2b4fa8"/>
+<rect x="158" y="300" width="122" height="30" fill="#2b4fa8"/>
+<rect x="130" y="297" width="12" height="36" fill="#d4a017"/>
+<rect x="158" y="297" width="12" height="36" fill="#d4a017"/>
+<text x="25" y="352" font-size="11" fill="#2b4fa8" text-anchor="start">controller board (side cut)</text>
+<text x="176" y="292" font-size="11" fill="#a07c00" text-anchor="start">copper ring</text>
+<rect x="144" y="185" width="12" height="87" rx="3" fill="#1e6fd9"/>
+<rect x="147" y="272" width="6" height="74" fill="#c0c0c0"/>
+<text x="136" y="205" font-size="12" fill="#1e6fd9" text-anchor="end">blue wire</text>
+<text x="136" y="288" font-size="11" fill="#555" text-anchor="end">bare, tinned tip</text>
+<text x="350" y="90" font-size="18" fill="#000" text-anchor="start">2. Heat + add solder</text>
+<text x="350" y="115" font-size="13" fill="#333" text-anchor="start">Iron on the ring AND the wire,</text>
+<text x="350" y="135" font-size="13" fill="#333" text-anchor="start">1-2 s. Then touch solder to</text>
+<text x="350" y="155" font-size="13" fill="#333" text-anchor="start">the joint, not to the iron.</text>
+<rect x="350" y="300" width="122" height="30" fill="#2b4fa8"/>
+<rect x="488" y="300" width="122" height="30" fill="#2b4fa8"/>
+<rect x="460" y="297" width="12" height="36" fill="#d4a017"/>
+<rect x="488" y="297" width="12" height="36" fill="#d4a017"/>
+<text x="355" y="352" font-size="11" fill="#2b4fa8" text-anchor="start">controller board (side cut)</text>
+<text x="506" y="292" font-size="11" fill="#a07c00" text-anchor="start">copper ring</text>
+<rect x="474" y="185" width="12" height="87" rx="3" fill="#1e6fd9"/>
+<rect x="477" y="272" width="6" height="74" fill="#c0c0c0"/>
+<text x="466" y="205" font-size="12" fill="#1e6fd9" text-anchor="end">blue wire</text>
+<text x="466" y="288" font-size="11" fill="#555" text-anchor="end">bare, tinned tip</text>
+<path d="M610,150 L496,288 L486,282 L590,135 Z" fill="#777"/>
+<text x="550" y="140" font-size="12" fill="#333" text-anchor="start">iron: touch ring + wire</text>
+<line x1="360" y1="190" x2="466" y2="290" stroke="#bfbfbf" stroke-width="6" stroke-linecap="round"/>
+<text x="340" y="182" font-size="12" fill="#333" text-anchor="start">solder: feed into the joint</text>
+<text x="680" y="90" font-size="18" fill="#000" text-anchor="start">3. Done</text>
+<text x="680" y="115" font-size="13" fill="#333" text-anchor="start">Remove solder, then iron.</text>
+<text x="680" y="135" font-size="13" fill="#333" text-anchor="start">Hold still 3 s. Tug to test.</text>
+<text x="680" y="155" font-size="13" fill="#333" text-anchor="start">Trim the tip on the far side.</text>
+<rect x="680" y="300" width="122" height="30" fill="#2b4fa8"/>
+<rect x="818" y="300" width="122" height="30" fill="#2b4fa8"/>
+<rect x="790" y="297" width="12" height="36" fill="#d4a017"/>
+<rect x="818" y="297" width="12" height="36" fill="#d4a017"/>
+<text x="685" y="352" font-size="11" fill="#2b4fa8" text-anchor="start">controller board (side cut)</text>
+<text x="836" y="292" font-size="11" fill="#a07c00" text-anchor="start">copper ring</text>
+<rect x="804" y="185" width="12" height="87" rx="3" fill="#1e6fd9"/>
+<rect x="807" y="272" width="6" height="74" fill="#c0c0c0"/>
+<text x="796" y="205" font-size="12" fill="#1e6fd9" text-anchor="end">blue wire</text>
+<text x="796" y="288" font-size="11" fill="#555" text-anchor="end">bare, tinned tip</text>
+<path d="M788,297 Q804,294 807,276 L813,276 Q816,294 832,297 Z" fill="#d9d9d9" stroke="#888"/>
+<rect x="802" y="300" width="16" height="30" fill="#d9d9d9"/>
+<text x="840" y="270" font-size="12" fill="#080" text-anchor="start">small shiny cone</text>
+<text x="20" y="410" font-size="13" fill="#333" text-anchor="start">Check: no solder bridge to the next hole (especially RST next to 031). To undo: heat the joint and pull the wire out.</text>
+</svg>

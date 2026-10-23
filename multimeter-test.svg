@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="440" font-family="Helvetica">
+<rect width="100%" height="100%" fill="white"/>
+<text x="20" y="36" font-size="22" fill="#000" text-anchor="start">Testing one key with the multimeter (no USB, no controller needed)</text>
+<text x="20" y="60" font-size="14" fill="#333" text-anchor="start">Dial on •))) . The meter's own battery sends a tiny current out of the RED stick and checks if it comes back to BLACK.</text>
+<text x="20" y="90" font-size="20" fill="#080" text-anchor="start">KEY PRESSED → number</text>
+<rect x="30" y="120" width="150" height="220" rx="14" fill="#f2c200" stroke="#8a6a00" stroke-width="2"/>
+<rect x="45" y="135" width="120" height="55" rx="4" fill="#cfe3c9" stroke="#333"/>
+<text x="105" y="175" text-anchor="middle" font-size="30" font-family="Courier" font-weight="bold">0.700</text>
+<circle cx="105" cy="245" r="30" fill="#333"/>
+<text x="105" y="250" font-size="14" fill="#fff" text-anchor="middle">•)))</text>
+<text x="105" y="295" font-size="13" fill="#333" text-anchor="middle">multimeter</text>
+<text x="105" y="315" font-size="11" fill="#333" text-anchor="middle">(own battery)</text>
+<circle cx="75" cy="332" r="6" fill="#111"/>
+<circle cx="135" cy="332" r="6" fill="#d00"/>
+<rect x="250" y="130" width="160" height="130" rx="12" fill="#efe6fb" stroke="#7a5aa6" stroke-width="2"/>
+<text x="330" y="245" font-size="15" fill="#4b3470" text-anchor="middle">key a</text>
+<rect x="291" y="170" width="8" height="20" fill="#b87333"/>
+<rect x="361" y="170" width="8" height="20" fill="#b87333"/>
+<text x="295" y="162" font-size="11" fill="#333" text-anchor="middle">clean pin</text>
+<text x="371" y="162" font-size="11" fill="#333" text-anchor="middle">diode pin</text>
+<line x1="295" y1="192" x2="365" y2="192" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+<line x1="365" y1="180" x2="365" y2="320" stroke="#999" stroke-width="3" stroke-linecap="round"/>
+<rect x="351" y="220.0" width="28" height="60" rx="9" fill="#e9a46a" stroke="#8a5a2b" stroke-width="2"/>
+<rect x="351" y="266.0" width="28" height="11" fill="#111"/>
+<line x1="365" y1="320" x2="505" y2="320" stroke="#999" stroke-width="4" stroke-linecap="round"/>
+<text x="410" y="312" font-size="12" fill="#555" text-anchor="start">row (bare legs)</text>
+<path d="M135,332 C260,420 175,120 295,180" fill="none" stroke="#d00" stroke-width="5"/>
+<path d="M75,332 C110,480 305,400 425,320" fill="none" stroke="#111" stroke-width="5"/>
+<circle cx="295" cy="180" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="425" cy="320" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="365" cy="180" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="365" cy="320" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<text x="225" y="135" font-size="13" fill="#d00" text-anchor="start">RED stick</text>
+<text x="435" y="348" font-size="13" fill="#111" text-anchor="start">BLACK stick</text>
+<polyline points="295,180 295,192 365,192 365,320 425,320" fill="none" stroke="#0a0" stroke-width="6" stroke-dasharray="10 6" opacity="0.8"/>
+<text x="20" y="400" font-size="13" fill="#080" text-anchor="start">Tiny current from the meter: red → clean pin → switch → diode → black. Path complete.</text>
+<text x="600" y="90" font-size="20" fill="#a00" text-anchor="start">KEY RELEASED → nothing</text>
+<rect x="610" y="120" width="150" height="220" rx="14" fill="#f2c200" stroke="#8a6a00" stroke-width="2"/>
+<rect x="625" y="135" width="120" height="55" rx="4" fill="#cfe3c9" stroke="#333"/>
+<text x="685" y="175" text-anchor="middle" font-size="30" font-family="Courier" font-weight="bold">OL</text>
+<circle cx="685" cy="245" r="30" fill="#333"/>
+<text x="685" y="250" font-size="14" fill="#fff" text-anchor="middle">•)))</text>
+<text x="685" y="295" font-size="13" fill="#333" text-anchor="middle">multimeter</text>
+<text x="685" y="315" font-size="11" fill="#333" text-anchor="middle">(own battery)</text>
+<circle cx="655" cy="332" r="6" fill="#111"/>
+<circle cx="715" cy="332" r="6" fill="#d00"/>
+<rect x="830" y="130" width="160" height="130" rx="12" fill="#efe6fb" stroke="#7a5aa6" stroke-width="2"/>
+<text x="910" y="245" font-size="15" fill="#4b3470" text-anchor="middle">key a</text>
+<rect x="871" y="170" width="8" height="20" fill="#b87333"/>
+<rect x="941" y="170" width="8" height="20" fill="#b87333"/>
+<text x="875" y="162" font-size="11" fill="#333" text-anchor="middle">clean pin</text>
+<text x="951" y="162" font-size="11" fill="#333" text-anchor="middle">diode pin</text>
+<line x1="875" y1="192" x2="902" y2="182" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+<line x1="918" y1="192" x2="945" y2="192" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+<text x="910" y="212" font-size="11" fill="#a00" text-anchor="middle">open</text>
+<line x1="945" y1="180" x2="945" y2="320" stroke="#999" stroke-width="3" stroke-linecap="round"/>
+<rect x="931" y="220.0" width="28" height="60" rx="9" fill="#e9a46a" stroke="#8a5a2b" stroke-width="2"/>
+<rect x="931" y="266.0" width="28" height="11" fill="#111"/>
+<line x1="945" y1="320" x2="1085" y2="320" stroke="#999" stroke-width="4" stroke-linecap="round"/>
+<text x="990" y="312" font-size="12" fill="#555" text-anchor="start">row (bare legs)</text>
+<path d="M715,332 C840,420 755,120 875,180" fill="none" stroke="#d00" stroke-width="5"/>
+<path d="M655,332 C690,480 885,400 1005,320" fill="none" stroke="#111" stroke-width="5"/>
+<circle cx="875" cy="180" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="1005" cy="320" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="945" cy="180" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<circle cx="945" cy="320" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
+<text x="805" y="135" font-size="13" fill="#d00" text-anchor="start">RED stick</text>
+<text x="1015" y="348" font-size="13" fill="#111" text-anchor="start">BLACK stick</text>
+<text x="600" y="400" font-size="13" fill="#a00" text-anchor="start">Switch open: the path is broken, nothing gets through, the screen shows OL / 1.</text>
+<line x1="575" y1="75" x2="575" y2="420" stroke="#ccc" stroke-width="2"/>
+</svg>
