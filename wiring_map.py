@@ -589,7 +589,9 @@ def soldering_svg():
              label(40, 94, "then its leg runs along the gap and CROSSES the next key's leg = solder joint (grey dot). Colour changes = next diode.", 16),
              label(40, 116, "Blue = wire where legs can't reach. Yellow = column wire on pin 1. DOTTED = cable from that end to its controller hole.", 16),
              label(40, 138, "Controller drawn ABOVE the keys at its real left/right spot (it actually sits under the top keys), seen from its back, "
-                   "USB to the back edge. Shown 1.4x size.", 14, "#666")]
+                   "USB to the back edge. Shown 1.4x size.", 14, "#666"),
+             label(40, 160, "Turquoise holes (right board) = trackball sensor wires: 006 MOTION, 008 SCLK, 011 SDIO, 100 NCS, VCC, GND.",
+                   14, "#1a8f86")]
     left, left_h = soldering_half(200, "L")
     right, right_h = soldering_half(200 + left_h + 60, "R")
     total = 200 + left_h + 60 + right_h + 40
