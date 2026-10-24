@@ -18,7 +18,18 @@ Same holes on both halves. Matches `boards/shields/cosmos/` (col2row).
 | | | C4 | `113` |
 | | | C5 | `111` |
 
-Right half: keep `100`, `011`, `104`, `106` free for the trackball.
+## Trackball sensor → R controller (right half only, 6 wires)
+
+| Sensor pin | Controller hole |
+|---|---|
+| SCLK | `008` |
+| SDIO | `011` |
+| NCS | `100` |
+| MOTION | `006` |
+| VDD + VDDIO (bridge them on the sensor) | `VCC` |
+| GND | `GND` |
+
+NRESET: not wired (driver resets over SPI). Still free: `104`, `106`, `009`, `010`.
 
 ## Left half (C0 = outer pinky column)
 
