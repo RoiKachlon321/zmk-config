@@ -7,6 +7,17 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
+# PMW3610 trackball lives on this half only.
+config INPUT
+    default y
+
+config PMW3610
+    default y
+
+# Driver README: SuperMini/nice_nano_v2 may need a longer power-up delay ("product id 0xFF").
+config PMW3610_INIT_POWER_UP_EXTRA_DELAY_MS
+    default 1000
+
 endif # SHIELD_COSMOS_RIGHT
 
 if SHIELD_COSMOS_LEFT || SHIELD_COSMOS_RIGHT

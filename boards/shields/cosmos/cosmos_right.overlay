@@ -1,5 +1,6 @@
 // Right half columns — same pins as the left, mirrored (C0 = outer pinky column).
-// Pins 6/7/8/9 (silk 100/011/104/106) are kept free for the PMW3610 trackball.
+// PMW3610 trackball (bottom of this file): SCLK 008, SDIO 011, NCS 100, MOTION 006.
+// VDD+VDDIO bridged on the sensor -> controller VCC; GND -> GND; NRESET not wired (driver resets over SPI).
 // PROVISIONAL until wiring is soldered — see keyboard.todo.md.
 
 #include "cosmos.dtsi"
@@ -17,4 +18,54 @@
         , <&pro_micro 15 GPIO_ACTIVE_HIGH> // C4 y h n Backspace
         , <&pro_micro 14 GPIO_ACTIVE_HIGH> // C5 unused
         ;
+};
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+// SDIO is one shared data wire, so MOSI and MISO use the same pin (driver README).
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 8)>,   // silk 008
+                    <NRF_PSEL(SPIM_MOSI, 0, 11)>, // silk 011
+                    <NRF_PSEL(SPIM_MISO, 0, 11)>;
+        };
+    };
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 8)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 11)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 11)>;
+            low-power-enable;
+        };
+    };
+};
+
+&spi0 {
+    status = "okay";
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>; // NCS, silk 100
+
+    trackball: trackball@0 {
+        status = "okay";
+        compatible = "pixart,pmw3610";
+        reg = <0>;
+        spi-max-frequency = <2000000>;
+        irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // MOTION, silk 006
+        cpi = <600>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+        // swap-xy; invert-x; invert-y;  <- flip here if the cursor moves the wrong way
+    };
+};
+
+/ {
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+    };
 };
