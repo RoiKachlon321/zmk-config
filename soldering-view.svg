@@ -385,17 +385,17 @@
 <text x="446.2499999999999" y="1911.3625000000002" font-size="11" fill="#fff" text-anchor="middle">controller (back side)</text>
 <circle cx="372.1" cy="1636.9" r="4.5" fill="#8fa6d8" stroke="#111"/>
 <text x="380.1" y="1640.9" font-size="10" fill="#aab8dd" text-anchor="start">RAW</text>
-<circle cx="520.4" cy="1636.9" r="4.5" fill="#8fa6d8" stroke="#111"/>
+<circle cx="520.4" cy="1636.9" r="4.5" fill="#40e0d0" stroke="#111"/>
 <text x="512.4" y="1640.9" font-size="10" fill="#aab8dd" text-anchor="end">006</text>
-<circle cx="372.1" cy="1660.5" r="4.5" fill="#8fa6d8" stroke="#111"/>
+<circle cx="372.1" cy="1660.5" r="4.5" fill="#40e0d0" stroke="#111"/>
 <text x="380.1" y="1664.5" font-size="10" fill="#aab8dd" text-anchor="start">GND</text>
-<circle cx="520.4" cy="1660.5" r="4.5" fill="#8fa6d8" stroke="#111"/>
+<circle cx="520.4" cy="1660.5" r="4.5" fill="#40e0d0" stroke="#111"/>
 <text x="512.4" y="1664.5" font-size="10" fill="#aab8dd" text-anchor="end">008</text>
 <circle cx="372.1" cy="1684.2" r="4.5" fill="#8fa6d8" stroke="#111"/>
 <text x="380.1" y="1688.2" font-size="10" fill="#aab8dd" text-anchor="start">RST</text>
 <circle cx="520.4" cy="1684.2" r="4.5" fill="#8fa6d8" stroke="#111"/>
 <text x="512.4" y="1688.2" font-size="10" fill="#aab8dd" text-anchor="end">GND</text>
-<circle cx="372.1" cy="1707.9" r="4.5" fill="#8fa6d8" stroke="#111"/>
+<circle cx="372.1" cy="1707.9" r="4.5" fill="#40e0d0" stroke="#111"/>
 <text x="380.1" y="1711.9" font-size="10" fill="#aab8dd" text-anchor="start">VCC</text>
 <circle cx="520.4" cy="1707.9" r="4.5" fill="#8fa6d8" stroke="#111"/>
 <text x="512.4" y="1711.9" font-size="10" fill="#aab8dd" text-anchor="end">GND</text>
@@ -417,11 +417,11 @@
 <text x="512.4" y="1806.6" font-size="10" fill="#fff" text-anchor="end">024</text>
 <circle cx="372.1" cy="1826.3" r="4.5" fill="#fff" stroke="#111"/>
 <text x="380.1" y="1830.3" font-size="10" fill="#fff" text-anchor="start">113</text>
-<circle cx="520.4" cy="1826.3" r="4.5" fill="#8fa6d8" stroke="#111"/>
+<circle cx="520.4" cy="1826.3" r="4.5" fill="#40e0d0" stroke="#111"/>
 <text x="512.4" y="1830.3" font-size="10" fill="#aab8dd" text-anchor="end">100</text>
 <circle cx="372.1" cy="1850.0" r="4.5" fill="#fff" stroke="#111"/>
 <text x="380.1" y="1854.0" font-size="10" fill="#fff" text-anchor="start">111</text>
-<circle cx="520.4" cy="1850.0" r="4.5" fill="#8fa6d8" stroke="#111"/>
+<circle cx="520.4" cy="1850.0" r="4.5" fill="#40e0d0" stroke="#111"/>
 <text x="512.4" y="1854.0" font-size="10" fill="#aab8dd" text-anchor="end">011</text>
 <circle cx="372.1" cy="1873.7" r="4.5" fill="#8fa6d8" stroke="#111"/>
 <text x="380.1" y="1877.7" font-size="10" fill="#aab8dd" text-anchor="start">010</text>

@@ -994,7 +994,7 @@
 <circle cx="978.2467951106945" cy="2927.527887852589" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
 <circle cx="1066.7119638969366" cy="2968.260220940011" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
 <circle cx="1054.3616804620874" cy="3025.5501641489104" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
-<text x="40" y="2606.3312" font-size="13" fill="#333" text-anchor="start">Board drawn from its back (hole rows swap sides). If you see the chip, read the holes from the top view.</text>
+<text x="40" y="2606.3312" font-size="13" fill="#333" text-anchor="start">Board drawn from its back (hole rows swap sides). If you see the chip, read the holes from the top view. Turquoise = trackball sensor wires (right board).</text>
 <rect x="214.32599999999996" y="3055.6624" width="130" height="290" rx="8" fill="#2b4fa8"/>
 <rect x="261.32599999999996" y="3043.6624" width="36" height="22" rx="4" fill="#c9c9c9"/>
 <text x="279.32599999999996" y="3330.6624" font-size="12" fill="#fff" text-anchor="middle">L board (back side)</text>
@@ -1429,7 +1429,7 @@
 <circle cx="978.2467951106945" cy="3812.8590878525893" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
 <circle cx="1066.7119638969366" cy="3853.591420940011" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
 <circle cx="1054.3616804620874" cy="3910.8813641489105" r="6" fill="#bbb" stroke="#333" stroke-width="1.5"/>
-<text x="40" y="3491.6624" font-size="13" fill="#333" text-anchor="start">Board drawn from its back (hole rows swap sides). If you see the chip, read the holes from the top view.</text>
+<text x="40" y="3491.6624" font-size="13" fill="#333" text-anchor="start">Board drawn from its back (hole rows swap sides). If you see the chip, read the holes from the top view. Turquoise = trackball sensor wires (right board).</text>
 <rect x="214.32599999999996" y="3940.9936000000002" width="130" height="290" rx="8" fill="#2b4fa8"/>
 <rect x="261.32599999999996" y="3928.9936000000002" width="36" height="22" rx="4" fill="#c9c9c9"/>
 <text x="279.32599999999996" y="4215.9936" font-size="12" fill="#fff" text-anchor="middle">L board (back side)</text>

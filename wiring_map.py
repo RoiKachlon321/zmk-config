@@ -291,7 +291,8 @@ def full_panel(top, mirror=False, legs=False):
                    if mirror else "Full wiring: every key, diode and wire (top view, as if the case were see-through)", 20, "#000"),
              label(40, top + 58, "Left↔right mirrored vs. the top view; labels kept readable. Outer pinky column is now on the inside edge."
                    if mirror else "Each diode lies sideways from pin 2 toward the next key in its row (blue = row wire).", 13),
-             label(40, top + 76, "Board drawn from its back (hole rows swap sides). If you see the chip, read the holes from the top view."
+             label(40, top + 76, "Board drawn from its back (hole rows swap sides). If you see the chip, read the holes from the top view. "
+                   "Turquoise = trackball sensor wires (right board)."
                    if mirror else "Case upside down for soldering = the next picture (mirrored). "
                    "Grey dots = solder joints. Turquoise holes = trackball (right board).", 13)]
     key_svg_parts, joints, wire_svg = [], [], []
@@ -478,7 +479,7 @@ CTRL_POS = {"L": (2.79, 0.69), "R": (13.2, 0.69)}
 BOARD_UNITS = (0.95, 1.74)  # SuperMini 18 x 33 mm in key units (19 mm)
 
 
-def controller_real(cx, cy):
+def controller_real(cx, cy, side="L"):
     """SuperMini at real size, seen from its back (case upside down), USB toward the back edge (up)."""
     w, h = BOARD_UNITS[0] * S2 * 1.4, BOARD_UNITS[1] * S2 * 1.4  # drawn 1.4x so the hole labels are readable
     x0, y0 = cx - w / 2, cy - h / 2
@@ -492,7 +493,9 @@ def controller_real(cx, cy):
         holes[lh], holes[rh] = (x0 + 9, y), (x0 + w - 9, y)
         for name, x, anchor, dx in ((lh, x0 + 9, "start", 8), (rh, x0 + w - 9, "end", -8)):
             used = name in ROW_HOLES or name in COL_HOLES
-            parts += [f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4.5" fill="{"#fff" if used else "#8fa6d8"}" stroke="#111"/>',
+            sensor = side == "R" and (name in TRACKBALL or name == "VCC" or name == "GND" and i == 1)
+            fill = "#40e0d0" if sensor else ("#fff" if used else "#8fa6d8")
+            parts += [f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4.5" fill="{fill}" stroke="#111"/>',
                       label(round(x + dx, 1), round(y + 4, 1), name, 10, "#fff" if used else "#aab8dd", anchor)]
     return parts, holes
 
@@ -525,7 +528,7 @@ def soldering_half(top, side):
     ccx = lo + hi - CTRL_POS[side][0]  # mirrored like the keys
     # drawn ABOVE the keys (same left/right spot, USB to the back) so it doesn't cover them
     board_cy = min(k["cy"] for k in keys) - 0.5 * S2 - 40 - BOARD_UNITS[1] * S2 * 0.7
-    board, holes = controller_real(60 + (ccx - lo + 0.8) * S2, board_cy)
+    board, holes = controller_real(60 + (ccx - lo + 0.8) * S2, board_cy, side)
     name = "LEFT" if side == "L" else "RIGHT"
     parts = [label(40, top + 10, f"{name} HALF — case upside down (what you see while soldering)", 24, "#000")]
     for k in keys:
