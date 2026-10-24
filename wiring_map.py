@@ -216,7 +216,7 @@ def single_key_panel(top):
 # Pro Micro edges, USB at the top, chip side up (top to bottom).
 LEFT_EDGE = ["006", "008", "GND", "GND", "017", "020", "022", "024", "100", "011", "104", "106"]
 RIGHT_EDGE = ["RAW", "GND", "RST", "VCC", "031", "029", "002", "115", "113", "111", "010", "009"]
-TRACKBALL = {"100", "011", "104", "106"}
+TRACKBALL = {"008", "011", "100", "006"}  # SCLK, SDIO, NCS, MOTION (cosmos_right.overlay)
 S = 68  # px per key unit in the full wiring panel
 
 
@@ -743,7 +743,7 @@ def main():
         "   ".join(f"C{i}={h}" for i, h in enumerate(COL_HOLES))
     parts.append(f'<text x="40" y="{height - 40}" font-size="14">Controller holes: {legend}</text>')
     parts.append(f'<text x="40" y="{height - 18}" font-size="12" fill="#666">'
-                 'Right half: keep 100, 011, 104, 106 free for the trackball. Positions from cosmos-41.kls.json '
+                 'Right half trackball: SCLK 008, SDIO 011, NCS 100, MOTION 006, plus VCC + GND. Positions from cosmos-41.kls.json '
                  '(2D layout, not the curved case).</text>')
     parts += detail
     parts.append("</svg>")

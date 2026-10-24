@@ -63,7 +63,7 @@
 <g transform="translate(399.5,342.5) rotate(-66)"><rect x="-42.0" y="-27.0" width="84.0" height="54" rx="6" fill="#f4f4f4" stroke="#555"/><text y="-4" text-anchor="middle" font-size="13" font-weight="bold">Enter</text><text y="14" text-anchor="middle" font-size="10" fill="#666">R3 C5</text></g>
 <g transform="translate(656.3,374.7) rotate(66)"><rect x="-42.0" y="-27.0" width="84.0" height="54" rx="6" fill="#f4f4f4" stroke="#555"/><text y="-4" text-anchor="middle" font-size="13" font-weight="bold">Ctrl</text><text y="14" text-anchor="middle" font-size="10" fill="#666">R3 C3</text></g>
 <text x="40" y="495" font-size="14">Controller holes: R0=017   R1=020   R2=022   R3=024      C0=031   C1=029   C2=002   C3=115   C4=113   C5=111</text>
-<text x="40" y="517" font-size="12" fill="#666">Right half: keep 100, 011, 104, 106 free for the trackball. Positions from cosmos-41.kls.json (2D layout, not the curved case).</text>
+<text x="40" y="517" font-size="12" fill="#666">Right half trackball: SCLK 008, SDIO 011, NCS 100, MOTION 006, plus VCC + GND. Positions from cosmos-41.kls.json (2D layout, not the curved case).</text>
 <line x1="20" y1="535" x2="1030" y2="535" stroke="#ccc" stroke-width="2"/>
 <text x="40" y="570" font-size="20" fill="#000" text-anchor="start">One key, close up (seen from below)</text>
 <rect x="140" y="635" width="180" height="180" rx="14" fill="#efe6fb" stroke="#7a5aa6" stroke-width="3"/>
@@ -614,11 +614,11 @@
 <rect x="870.1730799999999" y="2170.3312" width="130" height="290" rx="8" fill="#2b4fa8"/>
 <rect x="917.1730799999999" y="2158.3312" width="36" height="22" rx="4" fill="#c9c9c9"/>
 <text x="935.1730799999999" y="2445.3312" font-size="12" fill="#fff" text-anchor="middle">R board (chip up)</text>
-<circle cx="882.1730799999999" cy="2200.3312" r="5" fill="#8fa6d8" stroke="#111"/>
+<circle cx="882.1730799999999" cy="2200.3312" r="5" fill="#40e0d0" stroke="#111"/>
 <text x="892.1730799999999" y="2204.3312" font-size="10" fill="#aab8dd" text-anchor="start">006</text>
 <circle cx="988.1730799999999" cy="2200.3312" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="978.1730799999999" y="2204.3312" font-size="10" fill="#aab8dd" text-anchor="end">RAW</text>
-<circle cx="882.1730799999999" cy="2220.3312" r="5" fill="#8fa6d8" stroke="#111"/>
+<circle cx="882.1730799999999" cy="2220.3312" r="5" fill="#40e0d0" stroke="#111"/>
 <text x="892.1730799999999" y="2224.3312" font-size="10" fill="#aab8dd" text-anchor="start">008</text>
 <circle cx="988.1730799999999" cy="2220.3312" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="978.1730799999999" y="2224.3312" font-size="10" fill="#aab8dd" text-anchor="end">GND</text>
@@ -654,11 +654,11 @@
 <text x="892.1730799999999" y="2384.3312" font-size="10" fill="#aab8dd" text-anchor="start">011</text>
 <circle cx="988.1730799999999" cy="2380.3312" r="5" fill="#fff" stroke="#111"/>
 <text x="978.1730799999999" y="2384.3312" font-size="10" fill="#fff" text-anchor="end">111</text>
-<circle cx="882.1730799999999" cy="2400.3312" r="5" fill="#40e0d0" stroke="#111"/>
+<circle cx="882.1730799999999" cy="2400.3312" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="892.1730799999999" y="2404.3312" font-size="10" fill="#aab8dd" text-anchor="start">104</text>
 <circle cx="988.1730799999999" cy="2400.3312" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="978.1730799999999" y="2404.3312" font-size="10" fill="#aab8dd" text-anchor="end">010</text>
-<circle cx="882.1730799999999" cy="2420.3312" r="5" fill="#40e0d0" stroke="#111"/>
+<circle cx="882.1730799999999" cy="2420.3312" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="892.1730799999999" y="2424.3312" font-size="10" fill="#aab8dd" text-anchor="start">106</text>
 <circle cx="988.1730799999999" cy="2420.3312" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="978.1730799999999" y="2424.3312" font-size="10" fill="#aab8dd" text-anchor="end">009</text>
@@ -1051,11 +1051,11 @@
 <text x="896.6225199999999" y="3330.6624" font-size="12" fill="#fff" text-anchor="middle">R board (back side)</text>
 <circle cx="843.6225199999999" cy="3085.6624" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="853.6225199999999" y="3089.6624" font-size="10" fill="#aab8dd" text-anchor="start">RAW</text>
-<circle cx="949.6225199999999" cy="3085.6624" r="5" fill="#8fa6d8" stroke="#111"/>
+<circle cx="949.6225199999999" cy="3085.6624" r="5" fill="#40e0d0" stroke="#111"/>
 <text x="939.6225199999999" y="3089.6624" font-size="10" fill="#aab8dd" text-anchor="end">006</text>
 <circle cx="843.6225199999999" cy="3105.6624" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="853.6225199999999" y="3109.6624" font-size="10" fill="#aab8dd" text-anchor="start">GND</text>
-<circle cx="949.6225199999999" cy="3105.6624" r="5" fill="#8fa6d8" stroke="#111"/>
+<circle cx="949.6225199999999" cy="3105.6624" r="5" fill="#40e0d0" stroke="#111"/>
 <text x="939.6225199999999" y="3109.6624" font-size="10" fill="#aab8dd" text-anchor="end">008</text>
 <circle cx="843.6225199999999" cy="3125.6624" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="853.6225199999999" y="3129.6624" font-size="10" fill="#aab8dd" text-anchor="start">RST</text>
@@ -1091,11 +1091,11 @@
 <text x="939.6225199999999" y="3269.6624" font-size="10" fill="#aab8dd" text-anchor="end">011</text>
 <circle cx="843.6225199999999" cy="3285.6624" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="853.6225199999999" y="3289.6624" font-size="10" fill="#aab8dd" text-anchor="start">010</text>
-<circle cx="949.6225199999999" cy="3285.6624" r="5" fill="#40e0d0" stroke="#111"/>
+<circle cx="949.6225199999999" cy="3285.6624" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="939.6225199999999" y="3289.6624" font-size="10" fill="#aab8dd" text-anchor="end">104</text>
 <circle cx="843.6225199999999" cy="3305.6624" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="853.6225199999999" y="3309.6624" font-size="10" fill="#aab8dd" text-anchor="start">009</text>
-<circle cx="949.6225199999999" cy="3305.6624" r="5" fill="#40e0d0" stroke="#111"/>
+<circle cx="949.6225199999999" cy="3305.6624" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="939.6225199999999" y="3309.6624" font-size="10" fill="#aab8dd" text-anchor="end">106</text>
 <text x="40" y="3385.6624" font-size="13" fill="#333" text-anchor="start">Dashed line = the wire from the end of that row/column to its hole. Controller position is schematic: route to wherever the holder sits, with ~3 cm slack.</text>
 <line x1="20" y1="3415.6624" x2="1100" y2="3415.6624" stroke="#ccc" stroke-width="2"/>
@@ -1486,11 +1486,11 @@
 <text x="896.6225199999999" y="4215.9936" font-size="12" fill="#fff" text-anchor="middle">R board (back side)</text>
 <circle cx="843.6225199999999" cy="3970.9936000000002" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="853.6225199999999" y="3974.9936000000002" font-size="10" fill="#aab8dd" text-anchor="start">RAW</text>
-<circle cx="949.6225199999999" cy="3970.9936000000002" r="5" fill="#8fa6d8" stroke="#111"/>
+<circle cx="949.6225199999999" cy="3970.9936000000002" r="5" fill="#40e0d0" stroke="#111"/>
 <text x="939.6225199999999" y="3974.9936000000002" font-size="10" fill="#aab8dd" text-anchor="end">006</text>
 <circle cx="843.6225199999999" cy="3990.9936000000002" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="853.6225199999999" y="3994.9936000000002" font-size="10" fill="#aab8dd" text-anchor="start">GND</text>
-<circle cx="949.6225199999999" cy="3990.9936000000002" r="5" fill="#8fa6d8" stroke="#111"/>
+<circle cx="949.6225199999999" cy="3990.9936000000002" r="5" fill="#40e0d0" stroke="#111"/>
 <text x="939.6225199999999" y="3994.9936000000002" font-size="10" fill="#aab8dd" text-anchor="end">008</text>
 <circle cx="843.6225199999999" cy="4010.9936000000002" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="853.6225199999999" y="4014.9936000000002" font-size="10" fill="#aab8dd" text-anchor="start">RST</text>
@@ -1526,11 +1526,11 @@
 <text x="939.6225199999999" y="4154.9936" font-size="10" fill="#aab8dd" text-anchor="end">011</text>
 <circle cx="843.6225199999999" cy="4170.9936" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="853.6225199999999" y="4174.9936" font-size="10" fill="#aab8dd" text-anchor="start">010</text>
-<circle cx="949.6225199999999" cy="4170.9936" r="5" fill="#40e0d0" stroke="#111"/>
+<circle cx="949.6225199999999" cy="4170.9936" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="939.6225199999999" y="4174.9936" font-size="10" fill="#aab8dd" text-anchor="end">104</text>
 <circle cx="843.6225199999999" cy="4190.9936" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="853.6225199999999" y="4194.9936" font-size="10" fill="#aab8dd" text-anchor="start">009</text>
-<circle cx="949.6225199999999" cy="4190.9936" r="5" fill="#40e0d0" stroke="#111"/>
+<circle cx="949.6225199999999" cy="4190.9936" r="5" fill="#8fa6d8" stroke="#111"/>
 <text x="939.6225199999999" y="4194.9936" font-size="10" fill="#aab8dd" text-anchor="end">106</text>
 <text x="40" y="4270.9936" font-size="13" fill="#333" text-anchor="start">Dashed line = the wire from the end of that row/column to its hole. Controller position is schematic: route to wherever the holder sits, with ~3 cm slack.</text>
 </svg>
