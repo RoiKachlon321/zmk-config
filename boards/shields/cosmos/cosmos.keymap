@@ -10,6 +10,7 @@
         compatible = "zmk,keymap";
 
         base {
+            display-name = "Base";
             bindings = <
     &kp Q &kp W &kp E &kp R &kp T                      &kp Y &kp U &kp I     &kp O   &kp P
     &kp A &kp S &kp D &kp F &kp G                      &kp H &kp J &kp K     &kp L   &kp RSHFT
@@ -20,13 +21,20 @@
         };
 
         lower {
+            display-name = "Lower";
+            // Lower + Esc = studio_unlock (ZMK Studio asks for it before editing).
             bindings = <
     &kp N1 &kp N2 &kp N3      &kp N4      &kp N5       &kp N6   &kp N7   &kp N8 &kp N9    &kp N0
     &trans &trans &mkp MCLK   &mkp LCLK   &mkp RCLK    &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans
     &trans &trans &trans      &trans      &trans       &trans   &trans   &trans &trans    &trans
-           &trans &trans                                                 &trans &trans
+           &studio_unlock &trans                                         &trans &trans
     &trans &trans &trans &trans                        &trans &trans &trans
             >;
         };
+
+        // Empty spare layers that ZMK Studio can turn on and fill later.
+        extra1 { status = "reserved"; };
+        extra2 { status = "reserved"; };
+        extra3 { status = "reserved"; };
     };
 };

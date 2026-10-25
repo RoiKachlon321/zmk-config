@@ -9,6 +9,50 @@
         display-name = "Default Layout";
         transform = <&default_transform>;
         kscan = <&kscan>;
-        // No `keys` positions yet: only needed for ZMK Studio (see keyboard.todo.md).
+        // Key positions for ZMK Studio, from designs/cosmos-keyboard/cosmos-41.kls.json.
+        // Same order as the keymap. Rotation origin = key centre.
+        keys  //                     w   h     x     y      rot    rx    ry
+        = <&key_physical_attrs 100 100     3    93      100    53   143> // q
+        , <&key_physical_attrs 100 100   105    27      100   155    77> // w
+        , <&key_physical_attrs 100 100   210     0      200   260    50> // e
+        , <&key_physical_attrs 100 100   305    34      200   355    84> // r
+        , <&key_physical_attrs 100 100   397    46      300   447    96> // t
+        , <&key_physical_attrs 100 100  1102    46   (-300)  1152    96> // y
+        , <&key_physical_attrs 100 100  1194    34   (-200)  1244    84> // u
+        , <&key_physical_attrs 100 100  1289     0   (-200)  1339    50> // i
+        , <&key_physical_attrs 100 100  1393    27   (-100)  1443    77> // o
+        , <&key_physical_attrs 100 100  1496    93   (-100)  1546   143> // p
+        , <&key_physical_attrs 100 100     3   202      100    53   252> // a
+        , <&key_physical_attrs 100 100   109   134      100   159   184> // s
+        , <&key_physical_attrs 100 100   215   107      200   265   157> // d
+        , <&key_physical_attrs 100 100   311   140      200   361   190> // f
+        , <&key_physical_attrs 100 100   404   153      300   454   203> // g
+        , <&key_physical_attrs 100 100  1095   153   (-300)  1145   203> // h
+        , <&key_physical_attrs 100 100  1188   140   (-200)  1238   190> // j
+        , <&key_physical_attrs 100 100  1284   107   (-200)  1334   157> // k
+        , <&key_physical_attrs 100 100  1390   134   (-100)  1440   184> // l
+        , <&key_physical_attrs 100 100  1496   202   (-100)  1546   252> // Shift
+        , <&key_physical_attrs 100 100     0   311      100    50   361> // z
+        , <&key_physical_attrs 100 100   105   243      100   155   293> // x
+        , <&key_physical_attrs 100 100   210   216      200   260   266> // c
+        , <&key_physical_attrs 100 100   305   249      200   355   299> // v
+        , <&key_physical_attrs 100 100   397   262      300   447   312> // b
+        , <&key_physical_attrs 100 100  1102   262   (-300)  1152   312> // n
+        , <&key_physical_attrs 100 100  1194   249   (-200)  1244   299> // m
+        , <&key_physical_attrs 100 100  1289   216   (-200)  1339   266> // ,
+        , <&key_physical_attrs 100 100  1394   243   (-100)  1444   293> // .
+        , <&key_physical_attrs 100 100  1499   311   (-100)  1549   361> // /
+        , <&key_physical_attrs 100 100    96   348      100   146   398> // Esc
+        , <&key_physical_attrs 100 100   198   321      200   248   371> // Tab
+        , <&key_physical_attrs 100 100  1301   321   (-200)  1351   371> // (
+        , <&key_physical_attrs 100 100  1403   348   (-100)  1453   398> // ?
+        , <&key_physical_attrs 100 100   315   398     1000   365   448> // Cmd
+        , <&key_physical_attrs 100 100   531   307      500   581   357> // Space
+        , <&key_physical_attrs 150 100   398   437    11000   473   487> // Lower
+        , <&key_physical_attrs 150 100   524   404  (-6600)   599   454> // Enter
+        , <&key_physical_attrs 150 100   952   458     6600  1027   508> // Ctrl
+        , <&key_physical_attrs 150 100  1033   391 (-11000)  1108   441> // Backspace
+        , <&key_physical_attrs 100 100  1184   398  (-1000)  1234   448> // Alt
+        ;
     };
 };
