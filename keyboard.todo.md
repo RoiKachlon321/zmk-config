@@ -10,16 +10,19 @@
 - [x] thumb-key wiring route (R3 nearest column)
 - [x] left R0 row + q column: q types
 - [x] left: rows R0-R3 + diodes (probe-tested)
-- [ ] left: finish columns C0-C5
-- [ ] commit + push Space/Lower column swap
-- [ ] flash new firmware to L board
-- [ ] right half wiring
+- [x] left: finish columns C0-C5 (all letters type)
+- [x] commit + push Space/Lower column swap
+- [ ] flash latest firmware to L board (Space/Lower swap)
+- [ ] test left bottom keys on a key-tester site
+- [ ] fit L board in holder, shorten wires
+- [ ] right half wiring (keep 006 008 100 011 free)
+- [ ] flash latest firmware to R board (trackball)
 - [ ] add flash-mode key (&bootloader)
-- [ ] confirm row/col pins against real wiring
-- [ ] confirm diode direction (col2row) when soldering
+- [x] left: row/col pins + diode direction confirmed (letters type)
+- [ ] right: confirm row/col pins + diodes by typing
 - [ ] confirm keymap vs cosmos-41.kls.json
 - [ ] place `)` somewhere
-- [ ] add PMW3610 driver + pins (reserved 6/7/8/9)
+- [x] add PMW3610 driver + pins (008 011 100 006)
 - [ ] decide NRESET: 5th pin or tie to VDDIO
 - [x] measure PMW3610 board + lens
 - [x] fit bearings + pins + ball

@@ -42,9 +42,11 @@ NRESET: not wired (driver resets over SPI). Still free: `104`, `106`, `009`, `01
 
 ## Right half (C0 = outer pinky column)
 
+**As soldered, the right board's column holes are mirrored:** C0 → `113`, C1 → `115`, C2 → `002`, C3 → `029`, C4 → `031` (fixed in `cosmos_right.overlay`).
+
 |    | C0    | C1  | C2  | C3   | C4        | C5 |
 |----|-------|-----|-----|------|-----------|----|
 | R0 | p     | o   | i   | u    | y         |    |
 | R1 | Shift | l   | k   | j    | h         |    |
 | R2 | /     | .   | ,   | m    | n         |    |
-| R3 | ?     | (   | Alt | Ctrl | Backspace |    |
+| R3 | ?     | (   | Alt | Backspace | Ctrl |    |

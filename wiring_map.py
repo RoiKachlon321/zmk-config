@@ -20,7 +20,7 @@ MATRIX = {
     "p": (0, 0), "o": (0, 1), "i": (0, 2), "u": (0, 3), "y": (0, 4),
     "Shift": (1, 0), "l": (1, 1), "k": (1, 2), "j": (1, 3), "h": (1, 4),
     "/": (2, 0), ".": (2, 1), ",": (2, 2), "m": (2, 3), "n": (2, 4),
-    "?": (3, 0), "(": (3, 1), "Alt": (3, 2), "Ctrl": (3, 3), "Backspace": (3, 4),
+    "?": (3, 0), "(": (3, 1), "Alt": (3, 2), "Ctrl": (3, 4), "Backspace": (3, 3),
 }
 ROW_HOLES = ["017", "020", "022", "024"]
 COL_HOLES = ["031", "029", "002", "115", "113", "111"]
@@ -582,8 +582,62 @@ def soldering_half(top, side):
     return parts + legs + bodies + joints + board + cables, max(height, 480)
 
 
+TRACKBALL_WIRES = [  # sensor pin, hole, what it does (cosmos_right.overlay)
+    ("MOTION", "006", "tells the board the ball moved"),
+    ("SCLK", "008", "clock"),
+    ("NCS", "100", "chip select"),
+    ("SDIO", "011", "data"),
+    ("VDD + VDDIO", "VCC", "power: bridge both pins on the sensor, one wire"),
+    ("GND", "GND", "ground: the GND next to RAW"),
+]
+
+
+def table(x, y, title, head, rows, widths, colour, bold_col):
+    """Simple SVG table: title, coloured header row, striped body rows. Returns parts and bottom y."""
+    rh = 30
+    parts = [label(x, y, title, 20, "#000")]
+    y += 12
+    for r, cells in enumerate([head] + rows):
+        fill = colour if r == 0 else ("#f3f3f3" if r % 2 else "#fff")
+        parts.append(f'<rect x="{x}" y="{y}" width="{sum(widths)}" height="{rh}" fill="{fill}" stroke="#ccc"/>')
+        cx = x
+        for c, (text, w) in enumerate(zip(cells, widths)):
+            bold = r == 0 or c == bold_col
+            parts.append(f'<text x="{cx + 10}" y="{y + 21}" font-size="16" fill="{"#fff" if r == 0 else "#111"}"'
+                         f'{" font-weight=\"bold\"" if bold else ""}>{text}</text>')
+            cx += w
+        y += rh
+    return parts, y
+
+
+def hole_tables(top):
+    """Which wire goes into which controller hole (both halves) + the trackball's extra wires."""
+    names = list(MATRIX)
+    sides = {"L": names[:21], "R": names[21:]}
+    keys_on = lambda side, i, j: " ".join(sorted((k for k in sides[side] if MATRIX[k][i] == j),
+                                                  key=lambda k: MATRIX[k][1 - i])) or "—"
+    pos = lambda h: (f"row edge, hole {LEFT_EDGE.index(h) + 1}" if h in LEFT_EDGE
+                     else f"column edge, hole {RIGHT_EDGE.index(h) + 1}")
+    rows = [[f"R{j}", keys_on("L", 0, j), keys_on("R", 0, j), h, pos(h)] for j, h in enumerate(ROW_HOLES)]
+    cols = [[f"C{j}", keys_on("L", 1, j), keys_on("R", 1, j), h, pos(h)] for j, h in enumerate(COL_HOLES)]
+    widths = [130, 330, 300, 90, 330]
+    head = ["Wire", "Left half keys", "Right half keys", "Hole", "Where (count from the USB end)"]
+    parts, y = table(40, top, "ROWS (blue) → controller holes, same holes on both boards", head, rows, widths, BLUE, 3)
+    more, y = table(40, y + 50, "COLUMNS (yellow) → controller holes, same holes on both boards", head, cols, widths,
+                    "#c9a000", 3)
+    parts += more
+    tb = [[p, h, pos(h) if h != "GND" else "column edge, hole 2", what] for p, h, what in TRACKBALL_WIRES]
+    more, y = table(40, y + 50, "Trackball sensor → RIGHT board only (6 extra wires, turquoise holes)",
+                    ["Sensor pin", "Hole", "Where (count from the USB end)", "What it does"], tb,
+                    [150, 90, 280, 660], "#1a8f86", 1)
+    parts += more
+    parts.append(label(40, y + 26, "Row edge = the side with 017…024. Column edge = the side with RST/VCC. "
+                       "Always double-check the number printed next to the hole. NRESET: not wired.", 14, "#666"))
+    return parts, y + 50 - top
+
+
 def soldering_svg():
-    """Big two-part picture: left half, then right half, in the real soldering orientation."""
+    """Big two-part picture: hole tables, then left half, then right half, in the real soldering orientation."""
     intro = [label(40, 40, "Soldering view — case upside down, top edge (number/letter row) away from you", 26, "#000"),
              label(40, 72, "Each COLOUR = one diode: starts at its switch's pin 2, crosses its own switch, band in the gap below,", 16),
              label(40, 94, "then its leg runs along the gap and CROSSES the next key's leg = solder joint (grey dot). Colour changes = next diode.", 16),
@@ -592,13 +646,15 @@ def soldering_svg():
                    "USB to the back edge. Shown 1.4x size.", 14, "#666"),
              label(40, 160, "Turquoise holes (right board) = trackball sensor wires: 006 MOTION, 008 SCLK, 011 SDIO, 100 NCS, VCC, GND.",
                    14, "#1a8f86")]
-    left, left_h = soldering_half(200, "L")
-    right, right_h = soldering_half(200 + left_h + 60, "R")
-    total = 200 + left_h + 60 + right_h + 40
-    sep = f'<line x1="20" y1="{200 + left_h + 20}" x2="1240" y2="{200 + left_h + 20}" stroke="#ccc" stroke-width="3"/>'
+    tables, tables_h = hole_tables(210)
+    start = 210 + tables_h
+    left, left_h = soldering_half(start, "L")
+    right, right_h = soldering_half(start + left_h + 60, "R")
+    total = start + left_h + 60 + right_h + 40
+    sep = f'<line x1="20" y1="{start + left_h + 20}" x2="1240" y2="{start + left_h + 20}" stroke="#ccc" stroke-width="3"/>'
     SOLDER_OUT.write_text("\n".join([f'<svg xmlns="http://www.w3.org/2000/svg" width="1260" height="{total:.0f}" '
                                       'font-family="Helvetica">', '<rect width="100%" height="100%" fill="white"/>']
-                                     + intro + left + [sep] + right + ["</svg>"]))
+                                     + intro + tables + left + [sep] + right + ["</svg>"]))
     print(f"wrote {SOLDER_OUT}")
 
 
