@@ -23,12 +23,27 @@
         lower {
             display-name = "Lower";
             // Lower + Esc = studio_unlock (ZMK Studio asks for it before editing).
+            // Lower + Backspace (hold both) = System layer (flashing keys), see below.
             bindings = <
     &kp N1 &kp N2 &kp N3      &kp N4      &kp N5       &kp N6   &kp N7   &kp N8 &kp N9    &kp N0
     &trans &trans &mkp MCLK   &mkp LCLK   &mkp RCLK    &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans
     &trans &trans &trans      &trans      &trans       &trans   &trans   &trans &trans    &trans
            &studio_unlock &trans                                         &trans &trans
-    &trans &trans &trans &trans                        &trans &trans &trans
+    &trans &trans &trans &trans                        &trans &mo 2 &trans
+            >;
+        };
+
+        system {
+            display-name = "System";
+            // Hold Lower + Backspace, then: Q = LEFT half flashing mode, P = RIGHT half flashing mode.
+            // &bootloader acts on the half its key is on (same as double-tapping RST+GND).
+            // Not a combo on purpose: combos always run reset behaviors on the central (right) half.
+            bindings = <
+    &bootloader &none &none &none &none                &none &none &none &none &bootloader
+    &none &none &none &none &none                      &none &none &none &none &none
+    &none &none &none &none &none                      &none &none &none &none &none
+          &none &none                                              &none &none
+    &none &none &trans &none                           &none &trans &none
             >;
         };
 
