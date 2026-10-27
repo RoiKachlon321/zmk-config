@@ -5,7 +5,7 @@ if(CONFIG_ZMK_POINTING AND CONFIG_DT_HAS_ROI_CMD_SCROLL_ENABLED)
   # Refuse to ship if linker subscription order changes and breaks Cmd shortcuts.
   add_custom_target(check_cmd_scroll ALL
     COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/check_cmd_scroll.py
-            ${CMAKE_NM} ${PROJECT_BINARY_DIR}/zephyr/zephyr.elf
-    DEPENDS ${PROJECT_BINARY_DIR}/zephyr/zephyr.elf
+            ${CMAKE_NM} ${CMAKE_BINARY_DIR}/zephyr/zephyr.elf
+    DEPENDS ${CMAKE_BINARY_DIR}/zephyr/zephyr.elf
     VERBATIM)
 endif()
