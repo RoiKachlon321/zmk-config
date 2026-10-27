@@ -1,4 +1,4 @@
-/* Cmd-held scrolling for the right trackball; ordinary key bindings stay in Studio. */
+/* Cmd/Shift-held scrolling for the right trackball; ordinary bindings stay in Studio. */
 #define DT_DRV_COMPAT roi_cmd_scroll
 
 #ifdef CMD_SCROLL_SELF_TEST
@@ -14,7 +14,7 @@
 #include <zmk/hid.h>
 #endif
 
-#define CMD_MASK (MOD_LGUI | MOD_RGUI)
+#define SCROLL_MOD_MASK (MOD_LGUI | MOD_RGUI | MOD_LSFT | MOD_RSFT)
 
 struct cmd_scroll_config {
     int divisor;
@@ -54,7 +54,7 @@ static bool keys_held(void) {
     return false;
 }
 
-/* cmd_scroll_event - masks Cmd before mouse reports, then maps XY to wheel events. */
+/* cmd_scroll_event - masks scroll modifiers before reports, then maps XY to wheel events. */
 static int cmd_scroll_event(const struct device *dev, struct input_event *event,
                             uint32_t param1, uint32_t param2,
                             struct zmk_input_processor_state *state) {
@@ -65,7 +65,7 @@ static int cmd_scroll_event(const struct device *dev, struct input_event *event,
 
     const struct cmd_scroll_config *config = dev->config;
     k_mutex_lock(&cmd_scroll_mutex, K_FOREVER);
-    if (!(zmk_hid_get_explicit_mods() & CMD_MASK) || keys_held()) {
+    if (!(zmk_hid_get_explicit_mods() & SCROLL_MOD_MASK) || keys_held()) {
         remainder[0] = remainder[1] = 0;
         k_mutex_unlock(&cmd_scroll_mutex);
         return ZMK_INPUT_PROC_CONTINUE;
@@ -73,11 +73,11 @@ static int cmd_scroll_event(const struct device *dev, struct input_event *event,
 
     if (!scrolling) {
         /* Do not replace a mask already owned by another behavior (e.g. mod-morph). */
-        if (!(zmk_hid_get_keyboard_report()->body.modifiers & CMD_MASK)) {
+        if (!(zmk_hid_get_keyboard_report()->body.modifiers & SCROLL_MOD_MASK)) {
             k_mutex_unlock(&cmd_scroll_mutex);
             return ZMK_INPUT_PROC_CONTINUE;
         }
-        zmk_hid_masked_modifiers_set(CMD_MASK);
+        zmk_hid_masked_modifiers_set(SCROLL_MOD_MASK);
         int err = zmk_endpoints_send_report(HID_USAGE_KEY);
         if (err < 0) {
             zmk_hid_masked_modifiers_clear();

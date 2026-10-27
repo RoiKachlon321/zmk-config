@@ -36,6 +36,18 @@ int main(void) {
     test_mods = test_report.body.modifiers = 0;
     event = move(INPUT_REL_Y, 10);
     assert(event.code == INPUT_REL_Y && !scrolling);
+    for (int shift = MOD_LSFT; shift <= MOD_RSFT; shift *= 16) {
+        test_mods = test_report.body.modifiers = shift;
+        event = move(INPUT_REL_Y, 32);
+        assert(event.code == INPUT_REL_WHEEL && event.value == 2 && scrolling);
+        assert(test_report.body.modifiers == 0);
+        restore_cmd(&key_event);
+        assert(test_report.body.modifiers == shift && !scrolling);
+        test_report.body.keys[0] = 4; /* Shift+A stays a keyboard shortcut. */
+        event = move(INPUT_REL_Y, 32);
+        assert(event.code == INPUT_REL_Y && test_report.body.modifiers == shift);
+        test_report.body.keys[0] = 0;
+    }
     test_mods = MOD_LGUI;
     test_report.body.modifiers = 0; /* Another behavior owns the existing mask. */
     event = move(INPUT_REL_Y, 10);

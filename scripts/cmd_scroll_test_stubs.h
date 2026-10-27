@@ -6,6 +6,8 @@
 
 #define MOD_LGUI 8
 #define MOD_RGUI 128
+#define MOD_LSFT 2
+#define MOD_RSFT 32
 #define HID_USAGE_KEY 7
 #define INPUT_EV_REL 2
 #define INPUT_REL_X 0
@@ -45,4 +47,4 @@ static struct zmk_hid_keyboard_report *zmk_hid_get_keyboard_report(void) { retur
 static void zmk_hid_masked_modifiers_set(uint8_t mask) { test_report.body.modifiers = test_mods & ~mask; }
 static void zmk_hid_masked_modifiers_clear(void) { test_report.body.modifiers = test_mods; }
 /* report stub - verifies Cmd is absent before a mouse report can follow. */
-static int zmk_endpoints_send_report(int page) { assert(!(test_report.body.modifiers & (MOD_LGUI | MOD_RGUI))); test_sends++; return test_send_error; }
+static int zmk_endpoints_send_report(int page) { assert(!(test_report.body.modifiers & (MOD_LGUI | MOD_RGUI | MOD_LSFT | MOD_RSFT))); test_sends++; return test_send_error; }
