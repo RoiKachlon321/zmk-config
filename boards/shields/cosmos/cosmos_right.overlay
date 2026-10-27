@@ -59,7 +59,8 @@
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-        // swap-xy; invert-x; invert-y;  <- flip here if the cursor moves the wrong way
+        // Correct mounted orientation: physical up previously moved left, and left moved up.
+        swap-xy;
     };
 };
 
