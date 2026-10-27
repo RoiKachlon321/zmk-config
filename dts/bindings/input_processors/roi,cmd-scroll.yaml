@@ -1,10 +1,7 @@
 description: Cmd-held XY to wheel conversion with Cmd hidden during scrolling
 compatible: "roi,cmd-scroll"
-include: base.yaml
+include: ip_zero_param.yaml
 properties:
-  "#input-processor-cells":
-    type: int
-    const: 0
   scroll-divisor:
     type: int
     required: true
