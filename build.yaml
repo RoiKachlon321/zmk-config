@@ -25,5 +25,15 @@ include:
     shield: cosmos_right
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
+  # Separate diagnostic image; normal left/right images above remain unchanged.
+  - board: nice_nano_v2
+    shield: cosmos_right
+    artifact-name: sensor-debug
+    cmake-args: >-
+      -DSNIPPET='studio-rpc-usb-uart;zmk-usb-logging'
+      -DCONFIG_ZMK_STUDIO=y
+      -DCONFIG_PMW3610_LOG_LEVEL_DBG=y
+      -DCONFIG_LOG_BUFFER_SIZE=8192
+      -DCONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=8000
   - board: nice_nano_v2
     shield: settings_reset
