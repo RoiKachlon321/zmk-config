@@ -65,8 +65,15 @@
 };
 
 / {
+    cmd_scroll: cmd_scroll {
+        compatible = "roi,cmd-scroll";
+        #input-processor-cells = <0>;
+        scroll-divisor = <16>;
+    };
+
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
+        input-processors = <&cmd_scroll>;
     };
 };

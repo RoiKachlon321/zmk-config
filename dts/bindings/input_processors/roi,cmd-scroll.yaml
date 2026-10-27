@@ -1,0 +1,11 @@
+description: Cmd-held XY to wheel conversion with Cmd hidden during scrolling
+compatible: "roi,cmd-scroll"
+include: base.yaml
+properties:
+  "#input-processor-cells":
+    type: int
+    const: 0
+  scroll-divisor:
+    type: int
+    required: true
+    description: Sensor counts per scroll step; larger values scroll more slowly
