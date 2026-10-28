@@ -36,7 +36,7 @@ static const struct behavior_driver_api speed_api = {
 #define SPEED_INSTANCE(n)                                                                         \
     static const struct pointer_speed_config speed_config_##n = {                                  \
         .scroll = DT_INST_PROP(n, scroll),                                                         \
-        .delta = DT_INST_PROP(n, delta),                                                           \
+        .delta = DT_INST_PROP(n, increase) ? 25 : -25,                                                           \
     };                                                                                            \
     BEHAVIOR_DT_INST_DEFINE(n, NULL, NULL, NULL, &speed_config_##n, POST_KERNEL,                     \
                             CONFIG_KERNEL_INIT_PRIORITY_DEFAULT, &speed_api);

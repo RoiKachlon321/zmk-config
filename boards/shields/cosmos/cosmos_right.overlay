@@ -79,27 +79,25 @@
             compatible = "roi,behavior-pointer-speed";
             #binding-cells = <0>;
             display-name = "Pointer slower";
-            delta = <(-25)>;
         };
         pointer_faster: pointer_faster {
             compatible = "roi,behavior-pointer-speed";
             #binding-cells = <0>;
             display-name = "Pointer faster";
-            delta = <25>;
+            increase;
         };
         scroll_slower: scroll_slower {
             compatible = "roi,behavior-pointer-speed";
             #binding-cells = <0>;
             display-name = "Scroll slower";
             scroll;
-            delta = <(-25)>;
         };
         scroll_faster: scroll_faster {
             compatible = "roi,behavior-pointer-speed";
             #binding-cells = <0>;
             display-name = "Scroll faster";
             scroll;
-            delta = <25>;
+            increase;
         };
     };
 

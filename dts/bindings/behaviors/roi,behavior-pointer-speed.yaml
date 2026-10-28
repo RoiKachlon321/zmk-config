@@ -5,8 +5,6 @@ properties:
   scroll:
     type: boolean
     description: Adjust scroll speed rather than pointer movement
-  delta:
-    type: int
-    required: true
-    enum: [-25, 25]
-    description: Percentage-point change per key press
+  increase:
+    type: boolean
+    description: Increase speed by 25 percentage points; otherwise decrease it
