@@ -1,0 +1,12 @@
+description: Adjust pointer or scroll speed for the current power-on session
+compatible: "roi,behavior-pointer-speed"
+include: zero_param.yaml
+properties:
+  scroll:
+    type: boolean
+    description: Adjust scroll speed rather than pointer movement
+  delta:
+    type: int
+    required: true
+    enum: [-25, 25]
+    description: Percentage-point change per key press

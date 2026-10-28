@@ -21,7 +21,10 @@
 #define K_MUTEX_DEFINE(name) int name
 #define ZMK_LISTENER(...)
 #define ZMK_SUBSCRIPTION(...)
-#define DT_INST_PROP(...) 16
+#define TEST_fast_scroll_divisor 32
+#define TEST_slow_scroll_divisor 128
+#define TEST_scroll_multiplier 3
+#define DT_INST_PROP(inst, prop) TEST_##prop
 #define BUILD_ASSERT(condition, message) _Static_assert(condition, message)
 #define DEVICE_DT_INST_DEFINE(...)
 

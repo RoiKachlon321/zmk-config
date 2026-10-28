@@ -1,8 +1,13 @@
-description: Cmd-held XY to wheel conversion with Cmd hidden during scrolling
+description: Reversed slow Cmd / fast Shift scrolling with independent runtime pointer gain
 compatible: "roi,cmd-scroll"
 include: ip_zero_param.yaml
 properties:
-  scroll-divisor:
+  fast-scroll-divisor:
     type: int
     required: true
-    description: Sensor counts per scroll step; larger values scroll more slowly
+  slow-scroll-divisor:
+    type: int
+    required: true
+  scroll-multiplier:
+    type: int
+    required: true
