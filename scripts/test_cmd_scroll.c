@@ -64,6 +64,10 @@ int main(void) {
     assert(pointer_percent == 25);
     for (int i = 0; i < 20; i++) cosmos_adjust_speed(true, 25);
     assert(scroll_percent == 300);
+    key(MOD_RSFT);
+    assert(move(INPUT_REL_Y, 2047).value == -127);
+    assert(move(INPUT_REL_Y, -2047).value == 127);
+    key(0);
     for (int i = 0; i < 20; i++) cosmos_adjust_speed(false, 25);
     assert(pointer_percent == 300);
     for (int i = 0; i < 20; i++) cosmos_adjust_speed(true, -25);

@@ -135,6 +135,9 @@ static int cmd_scroll_event(const struct device *dev, struct input_event *event,
         int divisor = mode == 1 ? config->slow_divisor : config->fast_divisor;
         scale_event(event, axis, -config->multiplier * scroll_percent, divisor * 100,
                     scroll_remainder);
+        /* Standard HID wheel reports are signed 8-bit: never wrap on a fast fling. */
+        if (event->value > 127) event->value = 127;
+        if (event->value < -127) event->value = -127;
         event->code = axis == 0 ? INPUT_REL_HWHEEL : INPUT_REL_WHEEL;
     }
     k_mutex_unlock(&cmd_scroll_mutex);
