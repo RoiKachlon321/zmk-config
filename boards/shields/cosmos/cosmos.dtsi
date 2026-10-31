@@ -23,13 +23,13 @@
         diode-direction = "col2row";
         wakeup-source;
 
-        // Rows: same pins on both halves (left pin column, silk 017/020/022/024).
-        // PROVISIONAL until wiring is soldered — see keyboard.todo.md.
+        // Rows: same 031-edge pins on both halves; diode band still points toward the row.
+        // Only GPIO assignments change; matrix coordinates and key positions stay the same.
         row-gpios
-            = <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R0 top letter row
-            , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R1 home row
-            , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R2 bottom letter row
-            , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R3 Esc/Tab + thumbs
+            = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R0 top letter row, silk 031
+            , <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R1 home row, silk 029
+            , <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R2 bottom letter row, silk 002
+            , <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // R3 Esc/Tab + thumbs, silk 115
             ;
     };
 

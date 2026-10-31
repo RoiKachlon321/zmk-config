@@ -1,7 +1,7 @@
-// Right half columns — same pins as the left, mirrored (C0 = outer pinky column).
-// PMW3610 trackball (bottom of this file): SCLK 008, SDIO 011, NCS 100, MOTION 006.
-// VDD+VDDIO bridged on the sensor -> controller VCC; GND -> GND; NRESET not wired (driver resets over SPI).
-// Columns are MIRRORED vs the left board (Roi soldered them that way; p column is in 113, y column in 031).
+// Right columns — same new 017-edge pins as the left (C0 = outer pinky column).
+// PMW3610 trackball (bottom of this file): SCLK 008, SDIO 011, NCS 104, MOTION 006.
+// Exact module power: VDD -> VCC, GND -> GND; leave VDDIO/NRESET unconnected (sensor-wiring.html).
+// Old mirrored GPIO assignments are retired for this rewire; key positions/transform are unchanged.
 
 #include "cosmos.dtsi"
 
@@ -11,12 +11,12 @@
 
 &kscan {
     col-gpios
-        = <&pro_micro 15 GPIO_ACTIVE_HIGH> // C0 p Shift / ?      silk 113
-        , <&pro_micro 18 GPIO_ACTIVE_HIGH> // C1 o l . (          silk 115
-        , <&pro_micro 19 GPIO_ACTIVE_HIGH> // C2 i k , Alt        silk 002
-        , <&pro_micro 20 GPIO_ACTIVE_HIGH> // C3 u j m Backspace  silk 029
-        , <&pro_micro 21 GPIO_ACTIVE_HIGH> // C4 y h n Ctrl       silk 031
-        , <&pro_micro 14 GPIO_ACTIVE_HIGH> // C5 unused
+        = <&pro_micro 2 GPIO_ACTIVE_HIGH> // C0 p Shift / ?, silk 017
+        , <&pro_micro 3 GPIO_ACTIVE_HIGH> // C1 o l . (, silk 020
+        , <&pro_micro 4 GPIO_ACTIVE_HIGH> // C2 i k , Alt, silk 022
+        , <&pro_micro 5 GPIO_ACTIVE_HIGH> // C3 u j m Backspace, silk 024
+        , <&pro_micro 6 GPIO_ACTIVE_HIGH> // C4 y h n Ctrl, silk 100
+        , <&pro_micro 9 GPIO_ACTIVE_HIGH> // C5 unused, silk 106 (no wire)
         ;
 };
 
@@ -47,7 +47,7 @@
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>; // NCS, silk 100
+    cs-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>; // NCS, silk 104
 
     trackball: trackball@0 {
         status = "okay";

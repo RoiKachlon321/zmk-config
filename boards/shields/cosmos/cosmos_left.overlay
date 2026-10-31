@@ -1,15 +1,15 @@
-// Left half columns (right pin column on the controller, silk 031/029/002/115/113/111).
-// PROVISIONAL until wiring is soldered — see keyboard.todo.md.
+// Left columns on the 017 edge: 017/020/022/024/100/106, same map on both halves.
+// First five columns are consecutive; skip 011/104 for C5 (left Enter only).
 
 #include "cosmos.dtsi"
 
 &kscan {
     col-gpios
-        = <&pro_micro 21 GPIO_ACTIVE_HIGH> // C0 q a z Esc
-        , <&pro_micro 20 GPIO_ACTIVE_HIGH> // C1 w s x Tab
-        , <&pro_micro 19 GPIO_ACTIVE_HIGH> // C2 e d c Cmd
-        , <&pro_micro 18 GPIO_ACTIVE_HIGH> // C3 r f v Lower
-        , <&pro_micro 15 GPIO_ACTIVE_HIGH> // C4 t g b Space
-        , <&pro_micro 14 GPIO_ACTIVE_HIGH> // C5 Enter
+        = <&pro_micro 2 GPIO_ACTIVE_HIGH> // C0 q a z Esc, silk 017
+        , <&pro_micro 3 GPIO_ACTIVE_HIGH> // C1 w s x Tab, silk 020
+        , <&pro_micro 4 GPIO_ACTIVE_HIGH> // C2 e d c Cmd, silk 022
+        , <&pro_micro 5 GPIO_ACTIVE_HIGH> // C3 r f v Lower, silk 024
+        , <&pro_micro 6 GPIO_ACTIVE_HIGH> // C4 t g b Space, silk 100
+        , <&pro_micro 9 GPIO_ACTIVE_HIGH> // C5 Enter, silk 106
         ;
 };

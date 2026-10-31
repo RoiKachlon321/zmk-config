@@ -5,6 +5,7 @@ Run: python3 wiring_map.py
 """
 import json
 import math
+import re
 from pathlib import Path
 
 LAYOUT = Path(__file__).parents[2] / "designs/cosmos-keyboard/cosmos-41.kls.json"
@@ -22,8 +23,8 @@ MATRIX = {
     "/": (2, 0), ".": (2, 1), ",": (2, 2), "m": (2, 3), "n": (2, 4),
     "?": (3, 0), "(": (3, 1), "Alt": (3, 2), "Ctrl": (3, 4), "Backspace": (3, 3),
 }
-ROW_HOLES = ["017", "020", "022", "024"]
-COL_HOLES = ["031", "029", "002", "115", "113", "111"]
+ROW_HOLES = ["031", "029", "002", "115"]
+COL_HOLES = ["017", "020", "022", "024", "100", "106"]
 
 
 def load_keys():
@@ -112,6 +113,7 @@ def detail_panel(top):
         label(40, top + 58, "switch pin → diode → band end → BLUE row wire · other switch pin → YELLOW column wire", 13),
     ]
     board_x, board_top = x0 + 3 * GAP + 120, top + 70
+    board, holes = controller(board_x, board_top, "L")
     bottom_y = y0 + len(DETAIL_KEYS) * GAP + 10  # column wires run along here to the board
     col_pins = [[] for _ in DETAIL_KEYS[0]]
     wires_svg, joints = [], []
@@ -123,31 +125,23 @@ def detail_panel(top):
             parts += sw
             joints += sw_joints
             col_pins[c].append(pin)
-        # row wire: through every band leg in the row, to the board's left edge
-        hole_y = board_top + 40 + r * 34
-        wires_svg += [line(x0 - 30, row_y, board_x - 40, row_y, BLUE),
-                      line(board_x - 40, row_y, board_x - 40, hole_y, BLUE),
-                      line(board_x - 40, hole_y, board_x + 12, hole_y, BLUE),
+        # Row wire approaches the physical 031 edge, on the right in this chip-up view.
+        hole_x, hole_y = holes[ROW_HOLES[r]]
+        route_x = board_x + 170 + r * 18
+        wires_svg += [line(x0 - 30, row_y, route_x, row_y, BLUE),
+                      line(route_x, row_y, route_x, hole_y, BLUE),
+                      line(route_x, hole_y, hole_x, hole_y, BLUE),
                       label(x0 - 40, row_y + 4, f"R{r}", 14, BLUE, "end")]
     for c, pins in enumerate(col_pins):
         x = pins[0][0]
-        hole_y = board_top + 40 + c * 34
-        route_x = board_x + 150 + c * 22
+        hole_x, hole_y = holes[COL_HOLES[c]]
+        route_x = board_x - 60 - c * 18
         wires_svg += [line(x, pins[0][1], x, bottom_y + c * 14, YELLOW, 6),
                       line(x, bottom_y + c * 14, route_x, bottom_y + c * 14, YELLOW, 6),
                       line(route_x, bottom_y + c * 14, route_x, hole_y, YELLOW, 6),
-                      line(route_x, hole_y, board_x + 108, hole_y, YELLOW, 6),
+                      line(route_x, hole_y, hole_x, hole_y, YELLOW, 6),
                       label(x, pins[0][1] - 32, f"C{c}", 14, "#a07c00", "middle")]
-    # controller (top view, USB up): rows on the left edge, columns on the right edge
-    board = [f'<rect x="{board_x}" y="{board_top}" width="120" height="230" rx="8" fill="#2b4fa8"/>',
-             f'<rect x="{board_x+42}" y="{board_top-12}" width="36" height="22" rx="4" fill="#c9c9c9"/>',
-             label(board_x + 60, board_top + 215, "L board", 13, "#fff", "middle")]
-    for i in range(len(DETAIL_KEYS)):
-        y = board_top + 40 + i * 34
-        board += [dot(board_x + 12, y), label(board_x + 24, y + 4, ROW_HOLES[i], 12, "#fff")]
-    for i in range(len(DETAIL_KEYS[0])):
-        y = board_top + 40 + i * 34
-        board += [dot(board_x + 108, y), label(board_x + 96, y + 4, COL_HOLES[i], 12, "#fff", "end")]
+    # Reuse the full controller drawing so labelled holes and cable endpoints cannot swap sides.
     ny = bottom_y + 80
     notes = [label(40, ny, "● grey dots = solder joints · black band always on the row side · "
                    "one row wire can touch many band legs", 13),
@@ -216,7 +210,7 @@ def single_key_panel(top):
 # Pro Micro edges, USB at the top, chip side up (top to bottom).
 LEFT_EDGE = ["006", "008", "GND", "GND", "017", "020", "022", "024", "100", "011", "104", "106"]
 RIGHT_EDGE = ["RAW", "GND", "RST", "VCC", "031", "029", "002", "115", "113", "111", "010", "009"]
-TRACKBALL = {"008", "011", "100", "006"}  # SCLK, SDIO, NCS, MOTION (cosmos_right.overlay)
+TRACKBALL = {"008", "011", "104", "006"}  # SCLK, SDIO, NCS, MOTION (cosmos_right.overlay)
 S = 68  # px per key unit in the full wiring panel
 
 
@@ -585,9 +579,9 @@ def soldering_half(top, side):
 TRACKBALL_WIRES = [  # sensor pin, hole, what it does (cosmos_right.overlay)
     ("MOTION", "006", "tells the board the ball moved"),
     ("SCLK", "008", "clock"),
-    ("NCS", "100", "chip select"),
+    ("NCS", "104", "chip select"),
     ("SDIO", "011", "data"),
-    ("VDD + VDDIO", "VCC", "power: bridge both pins on the sensor, one wire"),
+    ("VDD", "VCC", "power; VDDIO unconnected (see sensor-wiring.html)"),
     ("GND", "GND", "ground: the GND next to RAW"),
 ]
 
@@ -616,8 +610,8 @@ def hole_tables(top):
     sides = {"L": names[:21], "R": names[21:]}
     keys_on = lambda side, i, j: " ".join(sorted((k for k in sides[side] if MATRIX[k][i] == j),
                                                   key=lambda k: MATRIX[k][1 - i])) or "—"
-    pos = lambda h: (f"row edge, hole {LEFT_EDGE.index(h) + 1}" if h in LEFT_EDGE
-                     else f"column edge, hole {RIGHT_EDGE.index(h) + 1}")
+    pos = lambda h: (f"017 edge, hole {LEFT_EDGE.index(h) + 1}" if h in LEFT_EDGE
+                     else f"031 edge, hole {RIGHT_EDGE.index(h) + 1}")
     rows = [[f"R{j}", keys_on("L", 0, j), keys_on("R", 0, j), h, pos(h)] for j, h in enumerate(ROW_HOLES)]
     cols = [[f"C{j}", keys_on("L", 1, j), keys_on("R", 1, j), h, pos(h)] for j, h in enumerate(COL_HOLES)]
     widths = [130, 330, 300, 90, 330]
@@ -626,26 +620,27 @@ def hole_tables(top):
     more, y = table(40, y + 50, "COLUMNS (yellow) → controller holes, same holes on both boards", head, cols, widths,
                     "#c9a000", 3)
     parts += more
-    tb = [[p, h, pos(h) if h != "GND" else "column edge, hole 2", what] for p, h, what in TRACKBALL_WIRES]
+    tb = [[p, h, pos(h) if h != "GND" else "031 edge, hole 2", what] for p, h, what in TRACKBALL_WIRES]
     more, y = table(40, y + 50, "Trackball sensor → RIGHT board only (6 extra wires, turquoise holes)",
                     ["Sensor pin", "Hole", "Where (count from the USB end)", "What it does"], tb,
                     [150, 90, 280, 660], "#1a8f86", 1)
     parts += more
-    parts.append(label(40, y + 26, "Row edge = the side with 017…024. Column edge = the side with RST/VCC. "
-                       "Always double-check the number printed next to the hole. NRESET: not wired.", 14, "#666"))
-    return parts, y + 50 - top
+    parts.append(label(40, y + 26, "017 edge = side with 017…024. 031 edge = side with RST/VCC. Read the printed label, not just the hole count.", 14, "#666"))
+    parts.append(label(40, y + 48, "C5 / 106 = LEFT Enter only (no right wire). First five columns consecutive; skip 011 / 104 for LEFT Enter (106). VDDIO / NRESET: unconnected.", 14, "#666"))
+    return parts, y + 70 - top
 
 
 def soldering_svg():
     """Big two-part picture: hole tables, then left half, then right half, in the real soldering orientation."""
-    intro = [label(40, 40, "Soldering view — case upside down, top edge (number/letter row) away from you", 26, "#000"),
+    intro = [label(40, 40, "Soldering view — NEW pin map for BOTH halves · case upside down", 26, "#000"),
              label(40, 72, "Each COLOUR = one diode: starts at its switch's pin 2, crosses its own switch, band in the gap below,", 16),
              label(40, 94, "then its leg runs along the gap and CROSSES the next key's leg = solder joint (grey dot). Colour changes = next diode.", 16),
              label(40, 116, "Blue = wire where legs can't reach. Yellow = column wire on pin 1. DOTTED = cable from that end to its controller hole.", 16),
              label(40, 138, "Controller drawn ABOVE the keys at its real left/right spot (it actually sits under the top keys), seen from its back, "
                    "USB to the back edge. Shown 1.4x size.", 14, "#666"),
-             label(40, 160, "Turquoise holes (right board) = trackball sensor wires: 006 MOTION, 008 SCLK, 011 SDIO, 100 NCS, VCC, GND.",
-                   14, "#1a8f86")]
+             label(40, 160, "Turquoise holes (right board) = trackball sensor wires: 006 MOTION, 008 SCLK, 011 SDIO, 104 NCS, VCC, GND.",
+                   14, "#1a8f86"),
+             label(40, 184, "Rewire controller ends and flash matching firmware. Keep the existing diode chains and key positions unchanged.", 15, "#9a400e")]
     tables, tables_h = hole_tables(210)
     start = 210 + tables_h
     left, left_h = soldering_half(start, "L")
@@ -696,7 +691,7 @@ def through_hole_svg():
     parts = ['<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" font-family="Helvetica">',
              '<rect width="100%" height="100%" fill="white"/>',
              label(20, 40, "Soldering a wire into a controller hole (side view)", 22, "#000"),
-             label(20, 64, "USB unplugged while soldering. The hole is lined with copper, so solder flows into it and grabs the wire.", 14)]
+             label(20, 64, "USB AND battery disconnected while soldering. The plated copper hole lets solder grip the wire.", 14)]
     parts += hole_step(0, "1. Push the wire in", ["Strip ~3 mm, tin it.", "Push the tip through the hole;", "bend it a little so it stays."])
     parts += hole_step(330, "2. Heat + add solder", ["Iron on the ring AND the wire,", "1-2 s. Then touch solder to", "the joint, not to the iron."],
                        iron=True, solder=True)
@@ -774,7 +769,36 @@ def multimeter_svg():
     print(f"wrote {METER_OUT}")
 
 
+# check_pin_maps - prevents publishing a diagram whose GPIOs disagree with either half's firmware.
+def check_pin_maps():
+    assert len(ROW_HOLES) == 4 and len(COL_HOLES) == 6
+    assert len(set(ROW_HOLES + COL_HOLES)) == 10
+    assert not TRACKBALL.intersection(ROW_HOLES + COL_HOLES)
+    silk = {21: "031", 20: "029", 19: "002", 18: "115", 2: "017", 3: "020",
+            4: "022", 5: "024", 6: "100", 8: "104", 9: "106"}  # nice_nano/arduino_pro_micro_pins.dtsi
+    shield = Path(__file__).parent / "boards/shields/cosmos"
+    for filename, prop, expected in (("cosmos.dtsi", "row-gpios", ROW_HOLES),
+                                     ("cosmos_left.overlay", "col-gpios", COL_HOLES),
+                                     ("cosmos_right.overlay", "col-gpios", COL_HOLES)):
+        text = (shield / filename).read_text()
+        body = re.search(rf"\b{prop}\s*=\s*(.*?);", text, re.S)
+        assert body, f"Missing {prop} in {filename}"
+        aliases = re.findall(r"<&pro_micro\s+(\d+)\s", body[1])
+        assert [silk[int(pin)] for pin in aliases] == expected, f"Diagram/firmware mismatch: {filename}"
+    right = (shield / "cosmos_right.overlay").read_text()
+    chip_select = re.search(r"\bcs-gpios\s*=\s*<&gpio(\d+)\s+(\d+)\s+GPIO_ACTIVE_LOW>", right)
+    assert chip_select, "Missing active-low SPI chip select"
+    ncs = f"{chip_select[1]}{int(chip_select[2]):02d}"
+    assert ncs == next(h for name, h, _ in TRACKBALL_WIRES if name == "NCS") and ncs in TRACKBALL
+    assert 'diode-direction = "col2row";' in (shield / "cosmos.dtsi").read_text()
+    keys = load_keys()
+    assert len(keys) == len({(key["side"], *key["rc"]) for key in keys}) == 41
+    print(f"PASS: both firmware pin maps match the diagram; 4 rows, 6 column slots, 41 keys; trackball NCS={ncs}, no GPIO collisions.")
+
+
+# main - validates the pin assignments and regenerates the existing wiring pictures.
 def main():
+    check_pin_maps()
     multimeter_svg()
     through_hole_svg()
     diode_chain_svg()
@@ -804,7 +828,7 @@ def main():
         "   ".join(f"C{i}={h}" for i, h in enumerate(COL_HOLES))
     parts.append(f'<text x="40" y="{height - 40}" font-size="14">Controller holes: {legend}</text>')
     parts.append(f'<text x="40" y="{height - 18}" font-size="12" fill="#666">'
-                 'Right half trackball: SCLK 008, SDIO 011, NCS 100, MOTION 006, plus VCC + GND. Positions from cosmos-41.kls.json '
+                 'Right half trackball: SCLK 008, SDIO 011, NCS 104, MOTION 006, plus VCC + GND. Positions from cosmos-41.kls.json '
                  '(2D layout, not the curved case).</text>')
     parts += detail
     parts.append("</svg>")

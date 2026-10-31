@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" font-family="Helvetica">
 <rect width="100%" height="100%" fill="white"/>
 <text x="20" y="40" font-size="22" fill="#000" text-anchor="start">Soldering a wire into a controller hole (side view)</text>
-<text x="20" y="64" font-size="14" fill="#333" text-anchor="start">USB unplugged while soldering. The hole is lined with copper, so solder flows into it and grabs the wire.</text>
+<text x="20" y="64" font-size="14" fill="#333" text-anchor="start">USB AND battery disconnected while soldering. The plated copper hole lets solder grip the wire.</text>
 <text x="20" y="90" font-size="18" fill="#000" text-anchor="start">1. Push the wire in</text>
 <text x="20" y="115" font-size="13" fill="#333" text-anchor="start">Strip ~3 mm, tin it.</text>
 <text x="20" y="135" font-size="13" fill="#333" text-anchor="start">Push the tip through the hole;</text>
